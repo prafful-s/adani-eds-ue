@@ -490,8 +490,8 @@ footer {
 
                 & p,
                 & a {
-                    font-family: 'Oxygen', sans-serif;
-                    font-size: 18px;
+                    color: #606060;
+                    font-size: 14px;
                     line-height: 32px;
                     padding: 0 0 15px;
 
