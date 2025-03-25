@@ -224,9 +224,7 @@ export default async function decorate(block) {
     */
   }
 
-
-
-    /** Search */
+/*
   const search = document.createRange().createContextualFragment(`
   <div class="search-wrapper">
     <button type="button" class="button nav-search-button">Search</button>
@@ -262,6 +260,8 @@ export default async function decorate(block) {
       toggleSearch(false);
     }
   });
+
+  */
 
   // hamburger for mobile
   const hamburger = document.createElement('div');

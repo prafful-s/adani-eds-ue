@@ -186,7 +186,7 @@ header nav .nav-brand a {
 }
 
 header nav .nav-brand img {
-  height: 100px;
+  height: 75px;
   width: auto;
 
   @media (width<=768px) {
@@ -286,13 +286,15 @@ header nav .nav-sections ul>li>a:hover {
     display: flex;
     gap: 10px;
     margin: 0;
+    align-items: center;
+    justify-content: flex-end;
   }
 
   header nav .nav-sections .default-content-wrapper>ul>li {
     flex: 0 1 auto;
     position: relative;
     font-weight: 500;
-    width: 15%;
+    width: 12%;
   }
 
   header nav .nav-sections .default-content-wrapper>ul>li>ul {

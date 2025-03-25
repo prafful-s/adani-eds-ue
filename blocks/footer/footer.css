@@ -9,8 +9,19 @@ footer .footer > div {
   padding: 40px 24px 24px;
 }
 
+footer .footer h5 {
+  color: #007ea8;
+  line-height: 40px;
+  font-size: 20px;
+}
+
 footer .footer p {
   margin: 0;
+}
+
+footer .footer img {
+  width: auto;
+  height: 85px;
 }
 
 @media (width >= 900px) {

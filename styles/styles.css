@@ -201,6 +201,9 @@ body {
   background-color: var(--background-color);
   display: grid;
   grid-template-rows: auto 1fr auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body.appear {
