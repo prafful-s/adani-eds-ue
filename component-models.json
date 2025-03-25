@@ -362,6 +362,13 @@
         "name": "videoUrl",
         "label": "Video Url",
         "multi": false
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "referenceImage",
+        "label": "Reference Image",
+        "multi": false
       }
     ]
   }
