@@ -1,6 +1,7 @@
 footer {
   background-color: var(--light-color);
   font-size: var(--body-font-size-xs);
+  border-top: 1px solid #ddd;
 }
 
 footer .footer > div {
@@ -17,6 +18,8 @@ footer .footer h5 {
 
 footer .footer p {
   margin: 0;
+  font-size: 14px;
+  line-height: 26px;
 }
 
 footer .footer img {

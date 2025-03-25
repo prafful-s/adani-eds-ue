@@ -284,7 +284,7 @@ header nav .nav-sections ul>li>a:hover {
 
   header nav .nav-sections ul {
     display: flex;
-    gap: 10px;
+    gap: 20px;
     margin: 0;
     align-items: center;
     justify-content: flex-end;
@@ -294,7 +294,7 @@ header nav .nav-sections ul>li>a:hover {
     flex: 0 1 auto;
     position: relative;
     font-weight: 500;
-    width: 12%;
+    width: auto;
   }
 
   header nav .nav-sections .default-content-wrapper>ul>li>ul {
