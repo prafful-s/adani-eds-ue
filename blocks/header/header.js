@@ -1,532 +1,284 @@
-/* stylelint-disable */
-header .header-nav-wrapper {
-  background-color: var(--background-color);
-  width: 100%;
-  z-index: 20;
-  position: fixed;
-  top: 40px;
-  padding: 2em 0;
-  border-bottom: 1px solid var(--color-neutral-400);
-}
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/no-extraneous-dependencies */
+// Drop-in Providers
+//import { render as cartProvider } from '@dropins/storefront-cart/render.js';
 
-@media (width < 768px) {
-  header .header-nav-wrapper {
-    padding: 0;
-  }
-}
+// Drop-in Containers
+//import MiniCart from '@dropins/storefront-cart/containers/MiniCart.js';
 
-header .header-nav-wrapper.minimized {
-  padding: 0.75em 0;
-  transition: padding-bottom .30s ease, padding-top .30s;
-  box-shadow: 0 8px 20px 0 rgba(0 0 0 / 26%);
-}
+// Drop-in Tools
+//import { events } from '@dropins/tools/event-bus.js';
+import { getMetadata } from '../../scripts/aem.js';
+import { loadFragment } from '../fragment/fragment.js';
 
-header nav {
-  box-sizing: border-box;
-  display: grid;
-  grid-template:
-    'hamburger brand tools' var(--nav-height) 'sections sections sections' 1fr / auto 1fr auto;
-  align-items: center;
-  margin: auto;
-  max-width: 1400px;
-  height: var(--nav-height);
-  padding: 0 16px;
-  font-family: var(--type-base-font-family);
-}
+// media query match that indicates mobile/tablet width
+const isDesktop = window.matchMedia('(min-width: 900px)');
 
-header nav[aria-expanded='true'] {
-  grid-template:
-    'hamburger brand' var(--nav-height) 'sections sections' 1fr
-    'tools tools' var(--nav-height) / auto 1fr;
-  overflow-y: auto;
-  min-height: 96vh;
-}
-
-@media (width >=600px) {
-  header nav {
-    padding: 0 32px;
-  }
-}
-
-@media (width >=900px) {
-  header nav {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  header nav[aria-expanded='true'] {
-    min-height: 0;
-    overflow: visible;
-  }
-}
-
-@media (width < 900px) {
-  header .header-nav-wrapper nav {
-    height: unset;
-  }
-}
-
-header .header-nav-wrapper .nav-brand {
-  margin-right: 1.5em;
-}
-
-header nav p {
-  margin: 0;
-  line-height: 1;
-}
-
-header nav a:any-link {
-  color: currentcolor;
-  text-transform: uppercase;
-  font-size: var(--body-font-size-xxs);
-  letter-spacing: 0.16em;
-  padding: 1.5rem 0;
-}
-
-@media (width <=900px) {
-  header nav a:any-link {
-    font-size: var(--body-font-size-xs);
-  }
-
-}
-
-
-/* hamburger */
-header nav .nav-hamburger {
-  grid-area: hamburger;
-  height: 22px;
-  display: flex;
-  align-items: center;
-}
-
-header nav .nav-hamburger button {
-  height: 22px;
-  margin: 0;
-  border: 0;
-  border-radius: 0;
-  padding: 0;
-  background-color: var(--color-neutral-50);
-  color: inherit;
-  overflow: initial;
-  text-overflow: initial;
-  white-space: initial;
-}
-
-header nav .nav-hamburger-icon,
-header nav .nav-hamburger-icon::before,
-header nav .nav-hamburger-icon::after {
-  box-sizing: border-box;
-  display: block;
-  position: relative;
-  width: 20px;
-}
-
-header nav .nav-hamburger-icon::before,
-header nav .nav-hamburger-icon::after {
-  content: '';
-  position: absolute;
-  background: currentcolor;
-}
-
-header nav[aria-expanded='false'] .nav-hamburger-icon,
-header nav[aria-expanded='false'] .nav-hamburger-icon::before,
-header nav[aria-expanded='false'] .nav-hamburger-icon::after {
-  height: 2px;
-  border-radius: 2px;
-  background: currentcolor;
-}
-
-header nav[aria-expanded='false'] .nav-hamburger-icon::before {
-  top: -6px;
-}
-
-header nav[aria-expanded='false'] .nav-hamburger-icon::after {
-  top: 6px;
-}
-
-header nav[aria-expanded='true'] .nav-hamburger-icon {
-  height: 22px;
-}
-
-header nav[aria-expanded='true'] .nav-hamburger-icon::before,
-header nav[aria-expanded='true'] .nav-hamburger-icon::after {
-  top: 3px;
-  left: 1px;
-  transform: rotate(45deg);
-  transform-origin: 2px 1px;
-  width: 24px;
-  height: 2px;
-  border-radius: 2px;
-}
-
-header nav[aria-expanded='true'] .nav-hamburger-icon::after {
-  top: unset;
-  bottom: 3px;
-  transform: rotate(-45deg);
-}
-
-@media (width >=900px) {
-  header nav .nav-hamburger {
-    display: none;
-    visibility: hidden;
-  }
-}
-
-/* brand */
-header nav .nav-brand a {
-  grid-area: brand;
-  flex-basis: 128px;
-  font: var(--type-headline-1-font);
-  letter-spacing: var(--type-headline-1-letter-spacing);
-}
-
-header nav .nav-brand img {
-  height: 48px;
-  width: auto;
-
-  @media (width<=768px) {
-    & {
-      width: 100px;
+function closeOnEscape(e) {
+  if (e.code === 'Escape') {
+    const nav = document.getElementById('nav');
+    const navSections = nav.querySelector('.nav-sections');
+    const navSectionExpanded = navSections.querySelector('[aria-expanded="true"]');
+    if (navSectionExpanded && isDesktop.matches) {
+      // eslint-disable-next-line no-use-before-define
+      toggleAllNavSections(navSections);
+      navSectionExpanded.focus();
+    } else if (!isDesktop.matches) {
+      // eslint-disable-next-line no-use-before-define
+      toggleMenu(nav, navSections);
+      nav.querySelector('button').focus();
     }
   }
 }
 
-/* sections */
-header nav .nav-sections {
-  grid-area: sections;
-  flex: 1 1 auto;
-  display: none;
-  visibility: hidden;
-}
-
-header nav[aria-expanded='true'] .nav-sections {
-  display: block;
-  visibility: visible;
-  align-self: start;
-}
-
-header nav .nav-sections ul {
-  list-style: none;
-  padding-left: 0;
-  font: var(--type-body-1-default-font);
-  letter-spacing: var(--type-body-1-default-letter-spacing);
-}
-
-header nav .nav-sections ul>li {
-  font-weight: 700;
-}
-
-@media (width < 768px) {
-  header nav .nav-sections ul>li {
-    margin: 15px 0;
+function openOnKeydown(e) {
+  const focused = document.activeElement;
+  const isNavDrop = focused.className === 'nav-drop';
+  if (isNavDrop && (e.code === 'Enter' || e.code === 'Space')) {
+    const dropExpanded = focused.getAttribute('aria-expanded') === 'true';
+    // eslint-disable-next-line no-use-before-define
+    toggleAllNavSections(focused.closest('.nav-sections'));
+    focused.setAttribute('aria-expanded', dropExpanded ? 'false' : 'true');
   }
 }
 
-header nav .nav-sections ul>li>ul {
-  margin-top: 0;
+function focusNavSection() {
+  document.activeElement.addEventListener('keydown', openOnKeydown);
 }
 
-header nav .nav-sections ul>li>ul>li {
-  font-weight: 500;
+/**
+ * Toggles all nav sections
+ * @param {Element} sections The container element
+ * @param {Boolean} expanded Whether the element should be expanded or collapsed
+ */
+function toggleAllNavSections(sections, expanded = false) {
+  sections.querySelectorAll('.nav-sections .default-content-wrapper > ul > li').forEach((section) => {
+    section.setAttribute('aria-expanded', expanded);
+  });
 }
 
-header nav .nav-sections ul>li>a {
-  padding: 1em 1.2em;
-}
-
-header nav .nav-sections ul>li>a.active,
-header nav .nav-sections ul>li>a:hover {
-  text-decoration: none;
-  background-color: var(--color-neutral-200);
-}
-
-@media (width >=900px) {
-  header nav .nav-sections {
-    display: block;
-    visibility: visible;
-    white-space: nowrap;
+/**
+ * Toggles the entire nav
+ * @param {Element} nav The container element
+ * @param {Element} navSections The nav sections within the container element
+ * @param {*} forceExpanded Optional param to force nav expand behavior when not null
+ */
+function toggleMenu(nav, navSections, forceExpanded = null) {
+  const expanded = forceExpanded !== null ? !forceExpanded : nav.getAttribute('aria-expanded') === 'true';
+  const button = nav.querySelector('.nav-hamburger button');
+  document.body.style.overflowY = (expanded || isDesktop.matches) ? '' : 'hidden';
+  nav.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+  toggleAllNavSections(navSections, expanded || isDesktop.matches ? 'false' : 'true');
+  button.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
+  // enable nav dropdown keyboard accessibility
+  const navDrops = navSections.querySelectorAll('.nav-drop');
+  if (isDesktop.matches) {
+    navDrops.forEach((drop) => {
+      if (!drop.hasAttribute('tabindex')) {
+        drop.setAttribute('role', 'button');
+        drop.setAttribute('tabindex', 0);
+        drop.addEventListener('focus', focusNavSection);
+      }
+    });
+  } else {
+    navDrops.forEach((drop) => {
+      drop.removeAttribute('role');
+      drop.removeAttribute('tabindex');
+      drop.removeEventListener('focus', focusNavSection);
+    });
   }
-
-  header nav[aria-expanded='true'] .nav-sections {
-    align-self: unset;
-  }
-
-  header nav .nav-sections .nav-drop {
-    position: relative;
-    padding-right: 16px;
-    cursor: pointer;
-  }
-
-  header nav .nav-sections .nav-drop::after {
-    content: '';
-    display: inline-block;
-    position: absolute;
-    top: 0.4rem;
-    right: 0.2rem;
-    transform: rotate(135deg);
-    width: 0.6rem;
-    height: 0.6rem;
-    border: 2px solid currentcolor;
-    border-radius: 0 1px 0 0;
-    border-width: 2px 2px 0 0;
-  }
-
-  header nav .nav-sections .nav-drop[aria-expanded='true']::after {
-    top: unset;
-    bottom: 0.5em;
-    transform: rotate(315deg);
-  }
-
-  header nav .nav-sections ul {
-    display: flex;
-    gap: 2em;
-    margin: 0;
-  }
-
-  header nav .nav-sections .default-content-wrapper>ul>li {
-    flex: 0 1 auto;
-    position: relative;
-    font-weight: 500;
-    width: 15%;
-  }
-
-  header nav .nav-sections .default-content-wrapper>ul>li>ul {
-    display: none;
-    position: relative;
-  }
-
-  header nav .nav-sections .default-content-wrapper>ul>li[aria-expanded='true']>ul {
-    display: block;
-    position: absolute;
-    left: -1em;
-    width: 200px;
-    margin-top: 12px;
-    padding: 1em;
-    background-color: var(--color-neutral-500);
-    white-space: initial;
-  }
-
-  header nav .nav-sections .default-content-wrapper>ul>li>ul::before {
-    content: '';
-    position: absolute;
-    top: -8px;
-    left: 8px;
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 8px solid var(--color-neutral-500);
-  }
-
-  header nav .nav-sections .default-content-wrapper>ul>li>ul>li {
-    padding: 8px 0;
+  // enable menu collapse on escape keypress
+  if (!expanded || isDesktop.matches) {
+    // collapse menu on escape press
+    window.addEventListener('keydown', closeOnEscape);
+  } else {
+    window.removeEventListener('keydown', closeOnEscape);
   }
 }
 
-/* tools */
-header nav .nav-panel {
-  z-index: 100;
-  position: absolute;
-  box-shadow: var(--shape-shadow-2);
-  background: var(--background-color);
-  left: 0;
-  top: 60px;
-  width: 100%;
-  display: none;
-  box-sizing: border-box;
+function addAnimation() {
+  window.addEventListener('scroll', () => {
+    const header = document.getElementsByClassName('header-nav-wrapper')[0];
+    const scrollPosition = window.scrollY;
+    const viewportWidth = window.innerWidth;
+
+    if (viewportWidth > 900) {
+      if (scrollPosition > 168) {
+        header.classList.add('minimized');
+      } else {
+        header.classList.remove('minimized');
+      }
+    } else {
+      header.classList.remove('minimized');
+    }
+  });
 }
 
-header nav .nav-panel--show {
-  display: block;
+function setActiveTab() {
+  const currentPath = window.location.pathname;
+  const matchResult = currentPath.match(/^\/([^/]+)/);
+  const path = matchResult ? matchResult[1] : null;
+  const navTabLinks = document.querySelector('.nav-sections ul');
+
+  [...navTabLinks.children].forEach((tab) => {
+    const link = tab.querySelector('a');
+    const linkTitle = link.title.toLowerCase();
+
+    if (linkTitle === path || (linkTitle === 'shop' && ['products', 'equipment', 'search'].includes(path))) {
+      link.classList.add('active');
+    }
+  });
+
+  /* temp - only for the demo since the adventures landing page is the "home page"
+  */
+  /*if (!path) {
+    const adventureTab = navTabLinks.querySelector('a[title="Adventures"],a[title="adventures"]');
+    adventureTab.classList.add('active');
+  }*/
 }
 
-header nav .nav-tools {
-  grid-area: tools;
-  display: flex;
-  flex-direction: row-reverse;
-  gap: 10px;
-  height: 100%;
-}
+/**
+ * decorates the header, mainly the nav
+ * @param {Element} block The header block element
+ */
+export default async function decorate(block) {
+  const locale = getMetadata('locale');
+  const navPath = locale ? `/${locale}/nav` : '/nav';
+  const fragment = await loadFragment(navPath);
+  let languages = null;
 
-header nav .nav-tools .minicart-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-header nav .nav-tools>button,
-header nav .nav-tools .minicart-wrapper>button {
-  color: var(--color-brand-300);
-  background: transparent;
-  padding: 5px 10px;
-  margin-left: 1em;
-  height: 100%;
-  border: unset;
-  cursor: pointer;
-}
-
-header nav .nav-tools button.nav-cart-button {
-  background-image: url(/icons/shopping-cart.svg);
-  position: relative;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: transparent;
-  background-size: 20px;
-  padding: 5px 15px;
-  margin: 1rem;
-  width: auto;
-  height: 34px;
-}
-
-header nav .nav-tools button.nav-cart-button[data-count]::after {
-  content: attr(data-count);
-  position: absolute;
-  top: 0;
-  right: 0;
-  background-color: var(--color-black-100);
-  color: var(--color-neutral-100);
-  border-radius: 50%;
-  width: 1.6em;
-  height: 1.6em;
-  display: flex;
-  align-items: center;
-  font-size: 0.65em;
-  justify-content: center;
-}
-
-header nav .nav-tools button.nav-search-button {
-  font-size: 0;
-  background-image: url('/icons/search.svg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: transparent;
-  background-size: 20px;
-  padding: 5px 15px;
-  margin: 1rem;
-  height: 34px;
-}
-
-header nav .nav-tools button.nav-search-button:hover,
-header nav .nav-tools button.nav-cart-button:hover {
-  background-color: var(--color-neutral-200);
-  cursor: pointer;
-}
-
-header .nav-search-panel {
-  padding: 1rem;
-}
-
-header .search-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-header .nav-search-panel input {
-  width: 100%;
-  padding: 10px;
-  box-sizing: border-box;
-  font: var(--type-headline-2-default-font);
-  font-size: var(--body-font-size-xs);
-  letter-spacing: var(--type-headline-2-default-letter-spacing);
-  border: 1px solid currentcolor;
-  appearance: none;
-}
-
-/* Mini Cart  */
-.cart-mini-cart:not(:has(.cart-empty-cart)) {
-  max-height: 760px;
-  min-height: 360px;
-}
-
-.cart-mini-cart__heading-text::after {
-  border-bottom: 2px solid var(--color-brand-600);
-  content: "";
-  display: block;
-  padding-top: 10px;
-  min-width: 84px;
-  width: fit-content;
-}
-
-.cart-mini-cart__heading .cart-mini-cart__heading-divider {
-  display: none;
-}
-
-.cart-mini-cart .cart-mini-cart__footer__ctas a {
-  font-size: var(--body-font-size-md);
-  width: auto;
-}
-
-.cart-mini-cart .cart-mini-cart__footer__ctas a.dropin-button--primary:hover {
-  background-color: var(--color-brand-600);
-}
-
-.cart-mini-cart .cart-mini-cart__footer__ctas a.dropin-button--primary:active {
-  background-color: var(--color-brand-700);
-}
-
-.cart-mini-cart .cart-empty-cart__actions a {
-  width: auto;
-}
-
-.cart-mini-cart .dropin-cart-item__remove {
-  color: var(--color-black-100);
-}
-
-header .nav-search-button:focus,
-header .nav-cart-button:focus {
-  background-color: unset;
-}
-
-header .nav-search-input .search_autocomplete .popover-container {
-  width: 100%;
-}
-
-/* If viewport height is below max, set max height to 90% of viewport */
-@media (height < 768px) {
-  .cart-mini-cart:not(:has(.cart-empty-cart)) {
-    max-height: calc(100vh - var(--nav-height));
-  }
-}
-
-@media (width > 768px) {
-
-  header nav .nav-search-panel,
-  header nav .minicart-panel {
-    min-width: 398px;
-    width: auto;
-    left: unset;
-    right: 0;
-    top: 40px;
-  }
-}
-
-@media (width >=1024px) {
-
-  header nav .minicart-wrapper,
-  header nav .search-wrapper {
-    position: relative;
+  try {
+    const response = await fetch('/languages.json');
+    languages = await response.json();
+  } catch (e) {
+    // error handling
   }
 
-  header .nav-search-input {
-    left: unset;
-    right: 20px;
+  // decorate nav DOM
+  const nav = document.createElement('nav');
+  nav.id = 'nav';
+
+  if (!fragment) {
+    return;
+  }
+  
+  while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
+
+  const classes = ['brand', 'sections', 'tools'];
+  classes.forEach((c, i) => {
+    const section = nav.children[i];
+    if (section) section.classList.add(`nav-${c}`);
+  });
+
+  const navBrand = nav.querySelector('.nav-brand');
+  const brandLink = navBrand.querySelector('.button');
+  if (brandLink) {
+    brandLink.className = '';
+    brandLink.closest('.button-container').className = '';
   }
 
-  header nav .minicart-panel,
-  header nav .nav-search-panel {
-    left: unset;
-    right: 0;
+  const navSections = nav.querySelector('.nav-sections');
+  if (navSections) {
+    navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
+      if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
+      navSection.addEventListener('click', () => {
+        if (isDesktop.matches) {
+          const expanded = navSection.getAttribute('aria-expanded') === 'true';
+          toggleAllNavSections(navSections);
+          navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+        }
+      });
+    });
   }
-}
+  const navTools = nav.querySelector('.nav-tools');
+  if (languages?.data) {
+    // Create the select element
+    const languageSelector = document.createElement('select');
+    languageSelector.id = 'language-selector';
 
-.lang-nav-selector {
-  font-size: 0;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: transparent;
-  padding: 5px 15px;
-  height: auto;
-  display: flex;
-  align-self: center;
+    languages.data.forEach((language) => {
+      const option = document.createElement('option');
+      option.value = language.url;
+      option.textContent = language.locale;
+      languageSelector.appendChild(option);
+    });
+
+    // Set the default value based on the locale meta tag
+    // eslint-disable-next-line max-len
+    const defaultLanguage = languages.data.find((lang) => lang.locale.toLowerCase() === locale.toLowerCase());
+    if (defaultLanguage) {
+      languageSelector.value = defaultLanguage.url;
+    }
+
+    // Add event listener to handle change event
+    languageSelector.addEventListener('change', () => {
+      window.location.href = languageSelector.value;
+    });
+
+//    const navTools = nav.querySelector('.nav-tools');
+    const liElem = document.createElement('div');
+    liElem.append(languageSelector);
+    liElem.classList.add('lang-nav-selector');
+    navTools.append(liElem);
+  }
+
+
+
+    /** Search */
+  const search = document.createRange().createContextualFragment(`
+  <div class="search-wrapper">
+    <button type="button" class="button nav-search-button">Search</button>
+    <div class="nav-search-input nav-search-panel nav-panel hidden">
+      <form id="search_mini_form" action="/search" method="GET">
+        <input id="search" type="search" name="q" placeholder="Search" />
+      </form>
+    </div>
+  </div>
+  `);
+
+  navTools.append(search);
+
+  const searchPanel = navTools.querySelector('.nav-search-panel');
+  const searchButton = navTools.querySelector('.nav-search-button');
+  const searchInput = searchPanel.querySelector('input');
+
+  function toggleSearch(state) {
+    const show = state ?? !searchPanel.classList.contains('nav-panel--show');
+    searchPanel.classList.toggle('nav-panel--show', show);
+    if (show) searchInput.focus();
+  }
+
+  navTools.querySelector('.nav-search-button').addEventListener('click', async () => {
+    await import('./searchbar.js');
+    document.querySelector('header .nav-search-input').classList.toggle('hidden');
+    toggleSearch();
+  });
+
+  // Close panels when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!searchPanel.contains(e.target) && !searchButton.contains(e.target)) {
+      toggleSearch(false);
+    }
+  });
+
+  // hamburger for mobile
+  const hamburger = document.createElement('div');
+  hamburger.classList.add('nav-hamburger');
+  hamburger.innerHTML = `<button type="button" aria-controls="nav" aria-label="Open navigation">
+      <span class="nav-hamburger-icon"></span>
+    </button>`;
+  hamburger.addEventListener('click', () => toggleMenu(nav, navSections));
+  nav.prepend(hamburger);
+  nav.setAttribute('aria-expanded', 'false');
+  // prevent mobile nav behavior on window resize
+  toggleMenu(nav, navSections, isDesktop.matches);
+  isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
+
+  const navWrapper = document.createElement('div');
+  navWrapper.className = 'header-nav-wrapper';
+  navWrapper.append(nav);
+  block.append(navWrapper);
+
+  addAnimation();
+  setActiveTab();
 }
