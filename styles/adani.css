@@ -47,7 +47,7 @@ body {
 
     .section.nav-brand {
         /* correct the logo alignment */
-        padding: 10px 10px 0;
+        padding: 0px 100px 0;
     }
 
     & nav {
