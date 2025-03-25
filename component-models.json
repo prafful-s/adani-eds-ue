@@ -352,5 +352,17 @@
         "valueType": "string"
       }
     ]
+  },
+  {
+    "id": "video",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "videoUrl",
+        "label": "Video Url",
+        "multi": false
+      }
+    ]
   }
 ]
