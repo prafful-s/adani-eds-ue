@@ -73,7 +73,8 @@ const loadVideoEmbed = (block, link, autoplay, background) => {
   }
 };
 
-export default async function decorate(block) {
+export default function decorate(block) {
+  console.log("video component called successfully");
   const placeholder = block.querySelector('picture');
   const link = block.querySelector('a').href;
   block.textContent = '';
@@ -111,7 +112,7 @@ export default async function decorate(block) {
   }
 }
 
-export function decorateBlock(block){
-  console.log("video component called successfully");
-  decorate(block);
-}
+// export function decorateBlock(block){
+//   console.log("video component called successfully");
+//   decorate(block);
+// }
