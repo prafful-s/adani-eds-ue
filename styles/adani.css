@@ -441,12 +441,6 @@ footer {
         }
 
         & .heading-list {
-
-            .columns.prudential-footer {
-                margin: 0;
-                padding: 0;
-            }
-
             .columns {
                 margin-top: 85px;
 
@@ -458,12 +452,6 @@ footer {
                     justify-content: space-between;
                     align-items: start;
                     gap: 0;
-
-                    &>div {
-                        padding: 80px 10px;
-                        border-right: 1px solid rgba(42, 42, 42, 0.5);
-                        width: 95%;
-                    }
 
                     @media(width>=1024px) {
                         &>div {
