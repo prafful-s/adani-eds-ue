@@ -15,9 +15,11 @@ export default function decorate(block) {
     classes.forEach((e, j) => {
       row.children[j].classList.add(`carousel-${e}`);
     });
+   
+    
+    const carouselText = row.querySelector('.carousel-text');
     carouselText.remove();
     /*
-    const carouselText = row.querySelector('.carousel-text');
     if (!carouselText.innerText.trim()) carouselText.remove();
     */
     /* buttons */
