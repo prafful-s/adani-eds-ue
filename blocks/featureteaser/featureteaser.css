@@ -1,1 +1,64 @@
 
+main .featureteaser-container {
+    width: 100%;
+    padding: 0;
+}
+
+main .featureteaser-wrapper {
+    width: 100%;
+    padding: 0;
+    max-width: initial;
+}
+
+.featureteaser {
+    display: block;
+}
+
+.featureteaser ul {
+    list-style: none;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 25px 45% 25px 10%;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.featureteaser ul li {
+    list-style: none;
+    display: flex;
+    margin: 30px 0;
+}
+
+.featureteaser .featureteaser-image {
+    display: none;
+}
+
+.featureteaser .featureteaser-body {
+    display: block;
+    flex-grow: 1;
+    flex-basis: 0;
+    min-width: 0;
+}
+
+.featureteaser .featureteaser-body h3 {
+    color: #0e6db6;
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 30px;
+    margin-bottom: 15px;
+}
+
+.featureteaser .featureteaser-body h4 {
+    color: #08b17f;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 30px;
+    margin-bottom: 15px;
+}
+
+.featureteaser .featureteaser-body p {
+    color:#636363;
+    font-size: 16px;
+    line-height: 24px;
+    margin: 10px 0;
+}
