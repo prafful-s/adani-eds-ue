@@ -16,7 +16,8 @@ export default function decorate(block) {
       row.children[j].classList.add(`carousel-${e}`);
     });
     const carouselText = row.querySelector('.carousel-text');
-    if (!carouselText.innerText.trim()) carouselText.remove();
+    carouselText.remove();
+    // if (!carouselText.innerText.trim()) 
     /* buttons */
     const button = document.createElement('button');
     button.title = 'Carousel Nav';

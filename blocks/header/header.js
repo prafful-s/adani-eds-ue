@@ -216,10 +216,12 @@ export default async function decorate(block) {
     });
 
 //    const navTools = nav.querySelector('.nav-tools');
+    /*
     const liElem = document.createElement('div');
     liElem.append(languageSelector);
     liElem.classList.add('lang-nav-selector');
     navTools.append(liElem);
+    */
   }
 
 

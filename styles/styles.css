@@ -184,6 +184,10 @@
   line-gap-override: normal;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 html, body {
   font-size: var(--body-font-size-xxs);
   height: 100%;
@@ -213,7 +217,7 @@ header {
 
 /* Need to adjust main because of positioning of the fixed header */
 main {
-  margin-top: 105px;
+  margin-top: 10px;
 } 
 
 @media (width < 768px) {

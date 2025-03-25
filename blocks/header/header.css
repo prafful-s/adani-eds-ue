@@ -5,9 +5,11 @@ header .header-nav-wrapper {
   width: 100%;
   z-index: 20;
   position: fixed;
-  top: 40px;
-  padding: 2em 0;
+  top: 0;
+  padding: 10px 0;
   border-bottom: 1px solid var(--color-neutral-400);
+  z-index: 9999;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 8px;
 }
 
 @media (width < 768px) {
@@ -82,6 +84,8 @@ header nav a:any-link {
   font-size: var(--body-font-size-xxs);
   letter-spacing: 0.16em;
   padding: 1.5rem 0;
+  text-transform: capitalize;
+  font-size: 14px;
 }
 
 @media (width <=900px) {
@@ -280,7 +284,7 @@ header nav .nav-sections ul>li>a:hover {
 
   header nav .nav-sections ul {
     display: flex;
-    gap: 2em;
+    gap: 10px;
     margin: 0;
   }
 
