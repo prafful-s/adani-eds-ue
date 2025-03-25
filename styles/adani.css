@@ -434,12 +434,6 @@ footer {
                     align-items: start;
                     gap: 0;
 
-                    @media(width>=1024px) {
-                        &>div {
-                            min-height: 700px;
-                        }
-                    }
-
                     &>div:hover {
                         background-color: #171c29;
                     }
