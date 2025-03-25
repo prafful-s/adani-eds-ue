@@ -112,5 +112,6 @@ export default async function decorate(block) {
 }
 
 export function decorateBlock(block){
+  console.log("video component called successfully");
   decorate(block);
 }
