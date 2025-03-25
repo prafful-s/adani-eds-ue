@@ -182,7 +182,7 @@ header nav .nav-brand a {
 }
 
 header nav .nav-brand img {
-  height: 48px;
+  height: 100px;
   width: auto;
 
   @media (width<=768px) {
