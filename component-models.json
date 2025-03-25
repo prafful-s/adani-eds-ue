@@ -357,7 +357,7 @@
     "id": "video",
     "fields": [
       {
-        "component": "text",
+        "component": "aem-content",
         "valueType": "string",
         "name": "videoUrl",
         "label": "Video Url",
