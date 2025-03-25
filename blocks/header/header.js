@@ -143,10 +143,8 @@ function setActiveTab() {
  */
 export default async function decorate(block) {
   const locale = getMetadata('locale');
-
   const pathSegments = window.location.pathname.split('/').filter(Boolean);
   const parentPath = pathSegments.length > 1 ? `/${pathSegments.slice(0, -1).join('/')}/` : '/';console.log(parentPath);
-
   const navPath = locale ? `/${locale}/nav` : parentPath+'/nav';
   const fragment = await loadFragment(navPath);
   let languages = null;
