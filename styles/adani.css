@@ -443,9 +443,6 @@ footer {
         & .heading-list {
             .columns {
                 margin-top: 85px;
-
-
-
                 &>div {
                     display: flex;
                     flex-direction: row;
@@ -481,16 +478,9 @@ footer {
                 }
 
                 & h2 {
-                    font-size: 2.4rem;
-                    line-height: 1.42;
-                    font-family: 'Oxygen', serif;
-                    font-weight: 700;
-                    color: #fff;
-                    line-height: 1;
-                    letter-spacing: .5px;
-
-                    margin-bottom: 30px;
-
+                    color: #007ea8;
+                    line-height: 40px;
+                    font-size: 2rem;
                     &+ul {
                         margin: 20px 0 0;
                         list-style: none;
