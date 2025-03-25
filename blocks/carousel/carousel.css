@@ -92,3 +92,9 @@ main .carousel-wrapper > :last-child button {
 main .carousel-wrapper > :last-child button.selected {
   background-color: var(--link-color);
 }
+li .button-container, li .button {
+     /* Reset styles to look like regular links */
+     display: inline;
+     background: none;
+     /* Add more resets as needed */
+}
