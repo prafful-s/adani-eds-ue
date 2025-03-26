@@ -141,5 +141,6 @@
   };
 
 export default function decorate(block){
+  console.log("video carousel is called successfully");
    videoCarousel.init();
 }
