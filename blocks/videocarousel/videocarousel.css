@@ -11,6 +11,7 @@
 }
 
 .carousel-slide {
+  min-height: 400px;
   display: flex;
   flex-direction: row;
   opacity: 0;
