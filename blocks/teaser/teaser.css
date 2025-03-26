@@ -32,7 +32,7 @@
 .teaser h2 a {
     color: #202020
 }
-.teaser .default-content-wrapper {
+.teaser-container .default-content-wrapper {
     margin : unset;
 }
 .teaser-wrapper {
