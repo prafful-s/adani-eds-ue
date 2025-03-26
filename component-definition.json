@@ -235,7 +235,7 @@
           }
         },
         {
-          "title": "News and Updates",
+          "title": "NewsList",
           "id": "newslist",
           "plugins": {
             "xwalk": {
@@ -250,7 +250,7 @@
           }
         },
         {
-          "title": "Video Carousel",
+          "title": "VideoCarousel",
           "id": "videocarousel",
           "plugins": {
             "xwalk": {
@@ -265,7 +265,7 @@
           }
         },
         {
-          "title": "Video Slide",
+          "title": "VideoSlide",
           "id": "videoslide",
           "plugins": {
             "xwalk": {
