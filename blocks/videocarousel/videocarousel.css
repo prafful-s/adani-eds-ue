@@ -99,7 +99,7 @@
 }
 
 .carousel-navigation {
-  display: flex;
+  display: none;
   justify-content: center;
   margin-top: 30px;
   gap: 15px;
