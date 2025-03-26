@@ -592,21 +592,21 @@ async function loadBlock(block) {
     const { blockName } = block.dataset;
     try {
       let cssLoaded;
-     // if (blockName === "footer" && window.location.href.includes("/content")){
-       //  cssLoaded = loadCSS(`${window.hlx.codeBasePath}/blocks/${blockName}/${blockName}-ue.css`);
-      //}else{
+      if (blockName === "footer" && window.location.href.includes("/content")){
+         cssLoaded = loadCSS(`${window.hlx.codeBasePath}/blocks/${blockName}/${blockName}-ue.css`);
+      }else{
         cssLoaded = loadCSS(`${window.hlx.codeBasePath}/blocks/${blockName}/${blockName}.css`);
-      //}
+      }
       
       const decorationComplete = new Promise((resolve) => {
         (async () => {
           try {
             var jsimportpath = `${window.hlx.codeBasePath}/blocks/${blockName}/${blockName}.js`;
             console.log("block name : "+blockName);
-            /*
+            
             if (blockName === "footer" && window.location.href.includes("/content")){
               jsimportpath = `${window.hlx.codeBasePath}/blocks/${blockName}/${blockName}-ue.js`;
-            }*/
+            }
             const mod = await import(
               jsimportpath
             );
