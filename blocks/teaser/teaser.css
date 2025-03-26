@@ -50,7 +50,7 @@
 }
 .news-updates h3 {
     font-size: 1.2em;
-    margin-bottom: 2rem;
+    margin-bottom: 20px;
     font-weight: 500;
 }
 .news-updates ul {
@@ -79,10 +79,12 @@
     background: white;
     padding: 1.5rem;
     color: black;
+    margin: 0;
 }
 .news-updates > div:nth-child(2) {
     background-color: #1378be;
     color: #fff;
+    margin: 0;
 }
 .bg-gray{
     background : #ebebeb;
@@ -146,8 +148,4 @@ ul li .button-container a.button:focus  {
     .teaser-wrapper {
         margin : unset;
     }
-}
-
-.news-and-updates-wrapper div {
-    padding: 0;
 }

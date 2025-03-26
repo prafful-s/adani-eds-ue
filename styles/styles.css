@@ -284,8 +284,8 @@ ol,
 ul,
 pre,
 blockquote {
-  margin-top: 1.5625em;
-  margin-bottom: 1.5625em;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 hr {
