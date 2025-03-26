@@ -72,10 +72,14 @@
 }
 .news-updates a:link, a:visited {
     text-decoration: none;
+}
+.news-updates a.button {
+    text-decoration: none;
     padding: 10px;
     color: #ffffff;
     background: linear-gradient(to right, rgba(27, 159, 148, 1) 0%, rgba(49, 109, 179, 1) 100%);
 }
+
 .news-updates > div:nth-child(1) {
     background: white;
     padding: 1.5rem;
