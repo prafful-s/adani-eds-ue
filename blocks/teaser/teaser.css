@@ -55,14 +55,13 @@
 .teaser h2 a {
     color: #202020
 }
-.teaser {
-    & .image-right picture {
-        float : right;
-    }
-    & .image-left picture {
-        float : left;
-    }
+.teaser.image-right picture {
+    float : right;
 }
+.teaser.image-left picture {
+    float : left;
+}
+
 .news-updates h3 {
     font-size: 1.2em;
     margin-bottom: 2rem;
