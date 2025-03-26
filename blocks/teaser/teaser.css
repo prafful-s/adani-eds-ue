@@ -147,3 +147,7 @@ ul li .button-container a.button:focus  {
         margin : unset;
     }
 }
+
+.news-and-updates-wrapper div {
+    padding: 0;
+}
