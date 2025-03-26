@@ -591,14 +591,12 @@ async function loadBlock(block) {
     block.dataset.blockStatus = 'loading';
     const { blockName } = block.dataset;
     try {
-      const cssLoaded = blockName === "footer" && window.location.href.includes("/content") ? loadCSS(`${window.hlx.codeBasePath}/blocks/${blockName}/${blockName}-ue.css`) : loadCSS(`${window.hlx.codeBasePath}/blocks/${blockName}/${blockName}.css`);
-      
-      /*const cssLoaded;
+      let cssLoaded;
       if (blockName === "footer" && window.location.href.includes("/content")){
          cssLoaded = loadCSS(`${window.hlx.codeBasePath}/blocks/${blockName}/${blockName}-ue.css`);
       }else{
         cssLoaded = loadCSS(`${window.hlx.codeBasePath}/blocks/${blockName}/${blockName}.css`);
-      }*/
+      }
       
       const decorationComplete = new Promise((resolve) => {
         (async () => {
