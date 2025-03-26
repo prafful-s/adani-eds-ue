@@ -721,3 +721,13 @@ main .section.section-title .default-content-wrapper:first-of-type p::after {
     flex: 2;
 }
 
+.three-column {
+  display: flex; 
+  justify-content: space-between;
+  width: 100%;
+}
+
+.three-column > div {
+  width: 30%;
+  box-sizing: border-box;
+}
