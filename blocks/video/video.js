@@ -118,6 +118,7 @@
 // }
 
 export default function decorateBlock(block) {
+  console.log("video component called successfully");
   const url = 'https://www.adanienterprises.com/-/media/Project/Enterprises/Home/AEL_vid';
   const wrapper = document.createElement('div');
   wrapper.className = 'video-placeholder';
