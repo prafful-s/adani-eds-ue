@@ -77,7 +77,7 @@
   align-items: center;
   justify-content: center;
   gap: 25px;
-  padding: 5% 10%;
+  padding: 5% 10% !important;
   box-sizing: border-box;
 }
 
