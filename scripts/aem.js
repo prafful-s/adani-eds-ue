@@ -638,6 +638,12 @@ async function loadBlock(block) {
  */
 function decorateBlock(block) {
   const shortBlockName = block.classList[0];
+  if(block.querySelector('div[data-aue-prop="styles"]')){
+    const stylesDiv = block.querySelector('div[data-aue-prop="styles"]');
+    const sectionClass = stylesDiv.textContent;
+    block.classList.add(sectionClass);
+    stylesDiv.parentElement.remove();
+  }
   if (shortBlockName && !block.dataset.blockStatus) {
     block.classList.add('block');
     block.dataset.blockName = shortBlockName;
