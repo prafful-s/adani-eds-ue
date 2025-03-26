@@ -96,7 +96,7 @@
     padding:48px 250px 48px 250px !important;
 }
 
-.default-content-wrapper > .button-container > a.button {
+.button-container > a.button {
     cursor: pointer;
     text-decoration: none;
     padding: 10px;
@@ -110,9 +110,7 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1b9f94', endColorstr='#316db3', GradientType=1 );
     transition: ease all 0.3s;   
 }
-
-
-.default-content-wrapper > .button-container > a.button:hover, .button-container > a.button:active, .button-container > a.button:focus {
+.button-container > a.button:hover, .button-container > a.button:active, .button-container > a.button:focus {
     cursor: pointer;
     text-decoration: none;
     padding: 10px;
@@ -126,4 +124,18 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2f6fb0', endColorstr='#5db188', GradientType=1 );
     transition: ease all 0.3s;
     color: #fff;
+}
+
+ul li .button-container a.button {
+    background:transparent;
+    background-origin: none;
+    filter: none;
+    color: #000;
+    transition: none;
+}
+
+@media (width >= 1024px) {
+    .teaser-wrapper {
+        margin : unset;
+    }
 }
