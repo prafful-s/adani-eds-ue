@@ -356,6 +356,11 @@
         "value": "",
         "label": "Text",
         "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "styles",
+        "label": "Styles"
       }
     ]
   },
@@ -373,6 +378,23 @@
         "name": "referenceImage",
         "label": "Reference Image",
         "multi": false
+      }
+    ]
+  },
+  {
+    "id": "newslist",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "styles",
+        "label": "Styles"
       }
     ]
   }

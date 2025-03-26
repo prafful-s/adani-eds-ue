@@ -19,7 +19,8 @@
       "teaser",
       "carousel",
       "cta",
-      "video"
+      "video",
+      "newslist"
     ]
   },
   {
@@ -40,10 +41,7 @@
       "text",
       "image",
       "button",
-      "title",
-      "cta",
-      "video",
-      "teaser"
+      "title"
     ]
   },
   {

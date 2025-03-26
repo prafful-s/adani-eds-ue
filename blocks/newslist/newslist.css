@@ -1,0 +1,44 @@
+.news-updates ul {
+    list-style: none;
+    padding: 3px;
+}
+.news-updates li {
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+.news-updates li a {
+    color: #000;
+    display: -webkit-box;
+    max-width: 100%;
+    line-height: 21px;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.news-updates a:link, a:visited {
+    text-decoration: none;
+}
+.news-updates > div:nth-child(1) {
+    padding: 1.5rem;
+    color: black;
+}
+.news-updates > div:nth-child(2) {
+    background-color: #1378be;
+    color: #fff;
+}
+.bg-gray{
+    background : #ebebeb;
+}
+.padding-min {
+    padding-left: 50px !important;
+    padding-right: 50px !important;
+}
+.padding-medium {
+    padding-left: 150px !important;
+    padding-right: 150px !important;
+}
+.padding-max {
+    padding-left: 290px !important;
+    padding-right: 290px !important;
+}
