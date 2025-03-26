@@ -32,19 +32,15 @@
 .teaser-wrapper {
     margin : unser;
 }
+.teaser.image-right img{
+    max-width: 400px;
+}
 .teaser.image-right > div:nth-child(1) {
     grid-column: auto;
 }
 .teaser.image-right > div:nth-child(2) {
     padding: 0px 30px 0px 30px;
 }
-.teaser.image-right picture {
-    float : right;
-}
-.teaser.image-left picture {
-    float : left;
-}
-
 .news-updates h3 {
     font-size: 1.2em;
     margin-bottom: 2rem;
