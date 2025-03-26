@@ -1,6 +1,6 @@
-  const videoCarousel = {
+    const videoCarousel = {
     // DOM Elements
-    container: document.querySelector('.videocarousel'),
+    container: document.querySelector('.video-carousel') || document.querySelector('.videocarousel'),
     slides: [],
     currentSlide: 0,
     totalSlides: 0,
@@ -9,8 +9,18 @@
     init: function() {
       if (!this.container) return;
       
-      // Get all direct div children of the carousel as slides
-      const slideDivs = this.container.querySelectorAll(':scope > div');
+      // Get all direct div children of the carousel as slides - handle different DOM structures
+      let slideDivs;
+      
+      // Check if we're using AEM structure (with data-aue attributes)
+      const isAemStructure = !!this.container.querySelector('[data-aue-model="videoSlide"]');
+      
+      if (isAemStructure) {
+        slideDivs = this.container.querySelectorAll('[data-aue-model="videoSlide"]');
+      } else {
+        slideDivs = this.container.querySelectorAll(':scope > div');
+      }
+      
       this.totalSlides = slideDivs.length;
       
       if (this.totalSlides === 0) return;
@@ -28,8 +38,19 @@
           slideDiv.classList.add('active');
         }
         
-        // Find video link and inject iframe
-        const videoLinkElement = slideDiv.querySelector('div[data-valign="middle"] a');
+        // Find video link
+        // In AEM structure, it's in the first div with a p > a structure
+        // In traditional structure, it's in the div with data-valign="middle"
+        let videoLinkElement;
+        
+        if (isAemStructure) {
+          videoLinkElement = slideDiv.querySelector('div > p > a');
+        } else {
+          videoLinkElement = slideDiv.querySelector('div[data-valign="middle"] a');
+        }
+        
+        if (!videoLinkElement) return; // Skip if no video link found
+        
         const videoLink = videoLinkElement.href;
         const videoId = this.getYouTubeId(videoLink);
         
@@ -49,15 +70,32 @@
         `;
         
         // Get the first div (video link container)
-        const videoLinkDiv = slideDiv.querySelector('div[data-valign="middle"]:first-child');
+        let videoLinkDiv;
+        
+        if (isAemStructure) {
+          videoLinkDiv = slideDiv.querySelector('div:first-child');
+        } else {
+          videoLinkDiv = slideDiv.querySelector('div[data-valign="middle"]:first-child');
+        }
         
         // Insert video container before the existing content
-        videoLinkDiv.innerHTML = '';
-        videoLinkDiv.appendChild(videoContainer);
+        if (videoLinkDiv) {
+          videoLinkDiv.innerHTML = '';
+          videoLinkDiv.appendChild(videoContainer);
+        }
         
         // Add classes to content div
-        const contentDiv = slideDiv.querySelector('div[data-valign="middle"]:last-child');
-        contentDiv.classList.add('carousel-content');
+        let contentDiv;
+        
+        if (isAemStructure) {
+          contentDiv = slideDiv.querySelector('div:nth-child(2)');
+        } else {
+          contentDiv = slideDiv.querySelector('div[data-valign="middle"]:last-child');
+        }
+        
+        if (contentDiv) {
+          contentDiv.classList.add('carousel-content');
+        }
       });
       
       // Add navigation
