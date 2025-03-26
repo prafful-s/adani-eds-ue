@@ -55,3 +55,22 @@
 .teaser h2 a {
     color: #202020
 }
+.news-updates > div:nth-child(2) {
+    background-color: #1378be;
+    color: #fff;
+}
+.bg-gray{
+    background : #ebebeb;
+}
+.padding-min{
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.padding-medium{
+    padding-left: 150px;
+    padding-right: 150px;
+}
+.padding-max{
+    padding-left: 290px;
+    padding-right: 290px;
+}
