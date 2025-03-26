@@ -19,23 +19,6 @@
   display: block;
 }
 
-.thirty-seventy-column {
-    display: flex; 
-    gap: 1rem;
-}
-
-/* First child: 30% width */
-.thirty-seventy-column > div:first-child {
-    flex: 0 0 30%;
-    flex: 1;
-}
-
-/* Second child: 70% width */
-.thirty-seventy-column > div:last-child {
-    flex: 0 0 70%;
-    flex: 2;
-}
-
 @media (width >= 900px) {
   .columns > div {
     align-items: flex-start;
