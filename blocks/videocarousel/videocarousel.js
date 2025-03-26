@@ -148,5 +148,9 @@ document.addEventListener('DOMContentLoaded', function() {
   };
   
   // Initialize the carousel
-  videoCarousel.init();
+ // videoCarousel.init();
 });
+
+export function decorate(block){
+   videoCarousel.init();
+}
