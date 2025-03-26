@@ -52,7 +52,7 @@
 .teaser.image-right > div:nth-child(2)::after {
       content: '';
       position: absolute;
-      top: 5px; /* 5px below the top edge */
+      top: 3px; /* 5px below the top edge */
       right: 0; /* At the edge */
       width: 0;
       height: 0;
