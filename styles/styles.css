@@ -728,6 +728,6 @@ main .section.section-title .default-content-wrapper:first-of-type p::after {
 }
 
 .three-column > div {
-  width: 30%;
+  width: 27%;
   box-sizing: border-box;
 }
