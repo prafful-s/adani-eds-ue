@@ -87,6 +87,9 @@
 .bg-gray{
     background : #ebebeb;
 }
+.bg-green{
+    background: #08b17f;
+}
 .padding-min {
      padding:10px 50px 10px 50px !important;
 }
