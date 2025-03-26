@@ -62,15 +62,15 @@
 .bg-gray{
     background : #ebebeb;
 }
-.padding-min{
-    padding-left: 50px;
-    padding-right: 50px;
+.padding-min {
+    padding-left: 50px !important;
+    padding-right: 50px !important;
 }
-.padding-medium{
-    padding-left: 150px;
-    padding-right: 150px;
+.padding-medium {
+    padding-left: 150px !important;
+    padding-right: 150px !important;
 }
-.padding-max{
-    padding-left: 290px;
-    padding-right: 290px;
+.padding-max {
+    padding-left: 290px !important;
+    padding-right: 290px !important;
 }
