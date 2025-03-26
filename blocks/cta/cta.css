@@ -1,0 +1,14 @@
+.three-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+}
+
+.cta-wrapper .button-container {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.cta-wrapper:hover .button-container {
+    opacity: 1;
+}
