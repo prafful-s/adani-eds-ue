@@ -1,3 +1,6 @@
+import { getMetadata } from '../../scripts/aem.js';
+import { loadFragment } from '../fragment/fragment.js';
+
 function transformToAdaniFooter() {
   // Get the original footer or container element
   const originalFooter = document.querySelector('#original-footer') || document.querySelector('footer');
