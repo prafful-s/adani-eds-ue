@@ -595,11 +595,10 @@ async function loadBlock(block) {
       const decorationComplete = new Promise((resolve) => {
         (async () => {
           try {
-            var jsimportpath;
-            if(window.location.href.includes("/content")){
+            var jsimportpath = `${window.hlx.codeBasePath}/blocks/${blockName}/${blockName}.js`;
+             console.log("block name : "+blockName);
+            if (blockName === "footer" && window.location.href.includes("/content")){
               jsimportpath = `${window.hlx.codeBasePath}/blocks/${blockName}/${blockName}-ue.js`;
-            }else{
-              jsimportpath = `${window.hlx.codeBasePath}/blocks/${blockName}/${blockName}.js`;
             }
             const mod = await import(
               jsimportpath
