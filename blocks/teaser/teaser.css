@@ -97,3 +97,35 @@
 .padding-max {
     padding:48px 250px 48px 250px !important;
 }
+
+.button-container > a.button {
+    cursor: pointer;
+    text-decoration: none;
+    padding: 10px;
+    color: #fff;
+    background: -moz-linear-gradient(left, rgba(27,159,148,1) 0%, rgba(49,109,179,1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(27,159,148,1)), color-stop(100%, rgba(49,109,179,1)));
+    background: -webkit-linear-gradient(left, rgba(27,159,148,1) 0%, rgba(49,109,179,1) 100%);
+    background: -o-linear-gradient(left, rgba(27,159,148,1) 0%, rgba(49,109,179,1) 100%);
+    background: -ms-linear-gradient(left, rgba(27,159,148,1) 0%, rgba(49,109,179,1) 100%);
+    background: linear-gradient(to right, rgba(27,159,148,1) 0%, rgba(49,109,179,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1b9f94', endColorstr='#316db3', GradientType=1 );
+    transition: ease all 0.3s;   
+}
+
+
+.button-container > a.button:hover, .button-container > a.button:active, .button-container > a.button:focus {
+    cursor: pointer;
+    text-decoration: none;
+    padding: 10px;
+    background: rgba(47,111,176,1);
+    background: -moz-linear-gradient(left, rgba(47,111,176,1) 0%, rgba(93,177,136,1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(47,111,176,1)), color-stop(100%, rgba(93,177,136,1)));
+    background: -webkit-linear-gradient(left, rgba(47,111,176,1) 0%, rgba(93,177,136,1) 100%);
+    background: -o-linear-gradient(left, rgba(47,111,176,1) 0%, rgba(93,177,136,1) 100%);
+    background: -ms-linear-gradient(left, rgba(47,111,176,1) 0%, rgba(93,177,136,1) 100%);
+    background: linear-gradient(to right, rgba(47,111,176,1) 0%, rgba(93,177,136,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2f6fb0', endColorstr='#5db188', GradientType=1 );
+    transition: ease all 0.3s;
+    color: #fff;
+}
