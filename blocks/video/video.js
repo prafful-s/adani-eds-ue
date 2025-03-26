@@ -1,5 +1,3 @@
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-
 function embedYoutube(url, autoplay, background) {
   const usp = new URLSearchParams(url.search);
   let suffix = '';
@@ -51,13 +49,8 @@ function getVideoElement(source, autoplay, background) {
 }
 
 const loadVideoEmbed = (block, link, autoplay, background) => {
-  if (block.dataset.embedLoaded === 'true') {
-    return;
-  }
   const url = new URL(link);
-
   const isYoutube = link.includes('youtube') || link.includes('youtu.be');
-
   if (isYoutube) {
     const embedWrapper = embedYoutube(url, autoplay, background);
     block.append(embedWrapper);
@@ -79,16 +72,8 @@ export default function decorate(block) {
   block.textContent = '';
   block.dataset.embedLoaded = false;
   const autoplay = block.classList ? block.classList.contains('autoplay') : false;
-  if (autoplay) {
-    const observer = new IntersectionObserver((entries) => {
-      if (entries.some((e) => e.isIntersecting)) {
-        observer.disconnect();
-        const playOnLoad = autoplay && !prefersReducedMotion.matches;
-        loadVideoEmbed(block, link, playOnLoad, autoplay);
-      }
-    });
-    observer.observe(block);
-  }
+  const playOnLoad = block.classList ? block.classList.contains('playonload') : false;
+  loadVideoEmbed(block, link, playOnLoad, autoplay);
 }
 
 export function decorateBlock(block){
