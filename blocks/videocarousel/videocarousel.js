@@ -1,9 +1,3 @@
-/**
- * Video Carousel JavaScript
- * Transforms existing carousel content to show embedded videos
- * without changing the original HTML structure.
- */
-document.addEventListener('DOMContentLoaded', function() {
   // Initialize the carousel
   const videoCarousel = {
     // DOM Elements
@@ -146,10 +140,7 @@ document.addEventListener('DOMContentLoaded', function() {
       return (match && match[7].length === 11) ? match[7] : null;
     }
   };
-  
-  // Initialize the carousel
- // videoCarousel.init();
-});
+
 
 export function decorate(block){
    videoCarousel.init();
