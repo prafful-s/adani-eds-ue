@@ -46,7 +46,21 @@
     grid-column: auto;
 }
 .teaser.image-right > div:nth-child(2) {
+    position: relative;
     padding: 0px 30px 0px 30px;
+}
+.teaser.image-right > div:nth-child(2)::after {
+      content: '';
+      position: absolute;
+      top: 5px; /* 5px below the top edge */
+      right: 0; /* At the edge */
+      width: 0;
+      height: 0;
+      /* Equilateral triangle pointing inward */
+      border-style: solid;
+      /* Equal heights for top and bottom to create an equilateral triangle */
+      border-width: 15px 20px 15px 0;
+      border-color: transparent white transparent transparent;
 }
 .news-updates h3 {
     font-size: 1.2em;
@@ -86,6 +100,8 @@
     color: #fff;
     margin: 0;
 }
+
+
 .bg-gray{
     background : #ebebeb;
 }
