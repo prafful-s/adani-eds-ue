@@ -399,7 +399,7 @@
     ]
   },
   {
-    "id": "videoSlide",
+    "id": "videoslide",
     "fields": [
       {
         "component": "aem-content",

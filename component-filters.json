@@ -54,7 +54,7 @@
   {
     "id": "videocarousel",
     "components": [
-      "videoSlide"
+      "videoslide"
     ]
   }
 ]
