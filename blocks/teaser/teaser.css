@@ -83,6 +83,7 @@
     text-decoration: none;
 }
 .news-updates > div:nth-child(1) {
+    background: white;
     padding: 1.5rem;
     color: black;
 }
@@ -94,14 +95,11 @@
     background : #ebebeb;
 }
 .padding-min {
-    padding-left: 50px !important;
-    padding-right: 50px !important;
+     padding:10px 50px 10px 50px !important;
 }
 .padding-medium {
-    padding-left: 150px !important;
-    padding-right: 150px !important;
+    padding:30px 150px 30px 150px !important;
 }
 .padding-max {
-    padding-left: 290px !important;
-    padding-right: 290px !important;
+    padding:48px 290px 48px 290px !important;
 }
