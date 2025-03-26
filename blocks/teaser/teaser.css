@@ -55,6 +55,16 @@
 .teaser h2 a {
     color: #202020
 }
+
+.news-updates h3 {
+    font-size: 1.2em;
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+.news-updates > div:nth-child(1) {
+    padding: 1.5rem;
+    color: black;
+}
 .news-updates > div:nth-child(2) {
     background-color: #1378be;
     color: #fff;
