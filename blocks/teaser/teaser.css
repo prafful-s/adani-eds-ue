@@ -174,3 +174,11 @@ ul li .button-container a.button:focus  {
         margin : unset;
     }
 }
+
+.teaser.image-left.block {
+    display: inline-flex;
+}
+
+.teaser.image-top.block {
+    display: inline-block;
+}
