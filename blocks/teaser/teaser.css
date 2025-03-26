@@ -109,13 +109,22 @@
     background: #08b17f;
 }
 .padding-min {
-     padding:10px 50px 10px 50px !important;
+    padding:10px 50px 10px 50px !important;
+   /* padding:10px 50px 10px 50px !important; */
+   padding: 2% 4% !important;
+   box-sizing: border-box;
 }
 .padding-medium {
-    padding:30px 150px 30px 150px !important;
+   padding:30px 150px 30px 150px !important;
+   /* padding:30px 150px 30px 150px !important; */
+   padding: 4% 7% !important;
+   box-sizing: border-box;
 }
 .padding-max {
-    padding:48px 250px 48px 250px !important;
+   padding:48px 250px 48px 250px !important;
+   /* padding:48px 250px 48px 250px !important; */
+   padding: 5% 10% !important;
+   box-sizing: border-box;
 }
 
 .button-container > a.button {
