@@ -722,14 +722,18 @@ main .section.section-title .default-content-wrapper:first-of-type p::after {
 }
 
 .three-column {
-  display: flex; 
+  display: flex;
   justify-content: space-between;
   width: 100%;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .three-column > div {
-    padding-right: 15px;
-    padding-left: 15px;
+    /* padding-right: 15px;
+    padding-left: 15px; */
+    padding: 0;
+    flex: 1;
 }
 
 .seventy-thirty-column {
