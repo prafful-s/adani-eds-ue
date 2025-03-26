@@ -135,6 +135,7 @@ ul li .button-container a.button:focus  {
     filter: none;
     color: #000;
     transition: none;
+    padding: 0;
 }
 
 @media (width >= 1024px) {
