@@ -13,7 +13,6 @@
 .carousel-slide {
   display: flex;
   flex-direction: row;
-  gap: 30px;
   opacity: 0;
   visibility: hidden;
   height: 0;
@@ -29,11 +28,10 @@
 }
 
 .carousel-video-container {
-  flex: 0 0 55%;
-  position: relative;
-  padding-bottom: 30.9375%; /* 16:9 aspect ratio */
-  height: 0;
-  overflow: hidden;
+    flex: 0 0 55%;
+    position: relative;
+    height: 100%;
+    width: 600px;
 }
 
 .carousel-video-container iframe {
