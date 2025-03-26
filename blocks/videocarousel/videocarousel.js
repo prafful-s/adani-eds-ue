@@ -67,27 +67,6 @@
     
     // Create navigation controls
     createNavigation: function() {
-      // Create navigation container
-      const navContainer = document.createElement('div');
-      navContainer.className = 'carousel-navigation';
-      
-      // Previous button
-      const prevBtn = document.createElement('button');
-      prevBtn.className = 'carousel-nav-btn prev';
-      prevBtn.innerHTML = '&#10094;';
-      prevBtn.setAttribute('aria-label', 'Previous slide');
-      prevBtn.addEventListener('click', () => this.navigate(-1));
-      
-      // Next button
-      const nextBtn = document.createElement('button');
-      nextBtn.className = 'carousel-nav-btn next';
-      nextBtn.innerHTML = '&#10095;';
-      nextBtn.setAttribute('aria-label', 'Next slide');
-      nextBtn.addEventListener('click', () => this.navigate(1));
-      
-      // Append buttons
-      navContainer.appendChild(prevBtn);
-      navContainer.appendChild(nextBtn);
       
       // Create indicators
       const indicatorsContainer = document.createElement('div');
