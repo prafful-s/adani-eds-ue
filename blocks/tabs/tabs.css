@@ -1,54 +1,155 @@
-.tabs ul {
-    display: flex;
-    flex-wrap: wrap;
-    padding-left: 0;
-    list-style: none;
+
+main .tabs-container {
+    width: 100%;
+    padding: 0;
 }
 
-.tabs li {
+main .tabs-wrapper {
+    width: 100%;
+    padding: 0;
+    max-width: initial;
+}
+
+.tabs {
+    display: block;
+}
+
+.tabs ul {
+    list-style: none;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 25px 10% 25px 10%;
     box-sizing: border-box;
-    border-bottom: 1px solid transparent;
+    margin: 0;
+}
+
+.tabs ul li {
+    list-style: none;
+    display: flex;
+    margin: 30px 0;
+}
+
+.tabs ul li .tabs-body h4 {
+    display: none;
+}
+
+.tabs ul li .tabs-body table {
+    width: 100%;
+}
+.tabs ul li .tabs-body table tr {
+    width: 100%;
+    display: flex;
+}
+
+
+.tabs ul li .tabs-body table td {
+    padding: 0;
+    display: inline-flex;
+    flex-grow: 1;
+    flex-basis: 0;
+    min-width: 0;
+    width: auto;
+    text-align: center;
+    justify-content: center;
+}
+
+.tabs ul li .tabs-body table td h4 {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 400;
+    color: #909090;
+    padding: 0.5rem;
+    line-height: 30px;
     cursor: pointer;
 }
-
-.tabs li button {
-    font-size: 14px;
-    font-weight: unset;
-    text-transform: uppercase;
-    padding: 1em 1.5em;
-    max-height: 3pc;
-    min-width: 3pc;
-    border-radius: 0;
-    background: none;
-    color: black;
+.tabs ul li .tabs-body table td.active {
+    background: transparent;
+    border-bottom: 2px solid #08b17f;
+}
+.tabs ul li .tabs-body table td.active h4 {
+    color: #000 ! Important;
 }
 
-.tabs li button.active {
-    border: none;
-    background-color: #202020;
-    color: #fff;
+
+.tabs .tabs-image {
+    display: none;
 }
 
-body.activity main {
-    grid-auto-flow: column;
-    grid-template-rows: auto auto min-content minmax(auto, 100%);
-    grid-template-areas:
-        "bread bread bread bread"
-        "hero hero hero hero"
-        "padleft left tabs padright"
-        "padleft left main padright";
+.tabs .tabs-body {
+    display: block;
+    flex-grow: 1;
+    flex-basis: 0;
+    min-width: 0;
 }
 
-body.activity main .tabs-container {
-    grid-area: tabs;
-    padding-bottom: 0;
+.tabs .tabs-body h3 {
+    color: #0e6db6;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 30px;
+    margin: 5px 0;
+    float: initial;
+    display: inline-block;
 }
 
-body.activity main [data-tab] {
-    padding-top: 0;
-    padding-bottom: 0;
+.tabs .tabs-body h4 {
+    color: #08b17f;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 30px;
+    margin-bottom: 15px;
+}
+.tabs .tabs-body p {
+    color:#636363;
+    font-size: 16px;
+    line-height: 24px;
+    margin: 10px 0;
 }
 
-body.activity main [data-tab] :first-child {
-    margin-top: 0;
+
+.tabs ul li {
+    display: none;
+}
+.tabs ul li:nth-child(2) {
+    display: block;
+}
+.tabs ul li:last-child {
+    display: block;
+    text-align: center;
+}
+.tabs ul li.active {
+    display: block;
+}
+.tabs ul li:nth-child(2) .tabs-body {
+    display: block;
+    max-width: initial;
+    padding: 0;
+}
+
+.tabs ul li .tabs-body {
+    display: inline-block;
+    width: auto;
+    max-width: 33%;
+    padding: 20px;
+    text-align: center;
+    box-sizing: border-box;
+    vertical-align: top;
+}
+
+
+
+.tabs ul li:last-child h4 {
+    display: block;
+}
+
+.tabs ul li:last-child a {
+    font-size: 16px;
+    font-weight: 400;
+    background: transparent;
+    border: 2px solid #1378be;
+    transition: easeall 0.5s;
+    color: #007bff;
+    padding: 10px;
+    text-decoration: none;
+    outline: none;
 }

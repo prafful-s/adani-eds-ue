@@ -1,88 +1,73 @@
-/**
- * @typedef TabInfo
- * @property {string} name
- * @property {HTMLElement} $tab
- * @property {HTMLElement} $content
- */
+import { createOptimizedPicture } from '../../scripts/aem.js';
 
-/**
- * @param {HTMLElement} $block
- * @return {TabInfo[]}
- */
-export function createTabs($block) {
-  const $ul = $block.querySelector('ul');
-  if (!$ul) {
-    return null;
-  }
-  /** @type TabInfo[] */
-  const tabs = [...$ul.querySelectorAll('li')].map(($li) => {
-    const title = $li.textContent;
-    const name = title.toLowerCase().trim();
-    return {
-      title,
-      name,
-      $tab: $li,
-    };
+export default function decorate(block) {
+  /* change to ul, li */
+  const ul = document.createElement('ul');
+  [...block.children].forEach((row) => {
+    const li = document.createElement('li');
+    while (row.firstElementChild) li.append(row.firstElementChild);
+    [...li.children].forEach((div) => {
+      if (div.children.length === 1 && div.querySelector('picture')) div.className = 'tabs-image';
+      else div.className = 'tabs-body';
+    });
+    ul.append(li);
   });
-  // move $ul below section div
-  $block.replaceChildren($ul);
+  ul.style.backgroundImage = "url('"+ul.querySelectorAll('picture > img')[0].src+"')";
+  
 
-  // search referenced sections and move them inside the tab-container
-  const $sections = document.querySelectorAll('[data-tab]');
-
-  // move the tab's sections before the tab riders.
-  [...$sections].forEach(($tabContent) => {
-    const name = $tabContent.dataset.tab.toLowerCase().trim();
-    const tab = tabs.find((t) => t.name === name);
-    if (tab) {
-      $tabContent.classList.add('tab-item', 'hidden');
-      tab.$content = $tabContent;
-    }
+  /*
+  ul.querySelectorAll('picture > img').forEach((img) => { 
+    img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]));
   });
-  return tabs;
+  */
+
+  block.textContent = '';
+  block.append(ul);
 }
 
-/**
- * @param {HTMLElement} $block
- */
-export default function decorate($block) {
-  const tabs = createTabs($block);
+// Set first tab as active
+document.querySelectorAll('.tabs-container .tabs-wrapper .tabs table tr td')[0].classList.add('active');
 
-  tabs.forEach((tab, index) => {
-    const $button = document.createElement('button');
-    const { $tab, title, name } = tab;
-    $button.textContent = title;
-    $button.setAttribute('data-tab-index', index);
-    $tab.replaceChildren($button);
+// Add event listener to all tabs
+document.querySelectorAll('.tabs-container .tabs-wrapper .tabs table tr td h4').forEach((tab) => {
+  tab.addEventListener('click', async (e) => {
+    e.preventDefault();
+    console.log('clicked on tab', tab);
 
-    tab.$content.setAttribute('data-tab-index', index);
+    // Remove active class from all tabs
+    const allTabs = tab.closest('tr').querySelectorAll('td');
+    allTabs.forEach(td => td.classList.remove('active'));
+    
+    // Add active class to clicked tab's parent td
+    tab.parentElement.classList.add('active');
 
-    $button.addEventListener('click', () => {
-      const $activeButton = $block.querySelector('button.active');
-      const blockPosition = $block.getBoundingClientRect().top;
-      const offsetPosition = blockPosition + window.scrollY - 80;
+    showTab();
+  });
+});
 
-      if ($activeButton !== $tab) {
-        $activeButton.classList.remove('active');
-        $button.classList.add('active');
 
-        tabs.forEach((t) => {
-          if (name === t.name) {
-            t.$content.classList.remove('hidden');
-          } else {
-            t.$content.classList.add('hidden');
-          }
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth',
-          });
-        });
-      }
+async function showTab() {
+    // Get selected tab text
+    const activeTab = document.querySelectorAll('.tabs-container .tabs-wrapper .tabs table tr td.active h4')[0];
+    const selectedTabText = activeTab.textContent.trim();
+    console.log('selected tab text:', selectedTabText);
+
+    // Find all li elements after the table
+    const allLiElements = activeTab.closest('.tabs').querySelectorAll('ul li');
+    // Remove active display from all li elements first
+    allLiElements.forEach(li => {
+      li.classList.remove('active');
     });
 
-    if (index === 0) {
-      $button.classList.add('active');
-      tab.$content.classList.remove('hidden');
-    }
-  });
+    // Find li with matching heading text and show it
+    allLiElements.forEach(li => {
+      const liHeading = li.querySelector('h4');
+      if (liHeading && liHeading.textContent.trim() === selectedTabText) {
+        li.classList.add('active');
+      }
+    });
 }
+
+setTimeout(() => {
+  document.querySelectorAll('.tabs-container .tabs-wrapper .tabs table tr td')[0].getElementsByTagName('h4')[0].click();
+}, 1000);
