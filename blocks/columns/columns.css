@@ -31,3 +31,78 @@
     order: unset;
   }
 }
+
+
+
+
+/* Business Container */
+.business-container {
+  display: block;
+  padding: 5% 10% !important;
+  box-sizing: border-box;
+  background: url(/content/dam/adani/image/bg-business.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.business-container .default-content-wrapper {
+  display: block;
+}
+.business-container .columns-wrapper {
+  display: block;
+  margin: 5% auto;
+}
+.business-container .columns-wrapper .columns {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+.business-container .columns-wrapper .columns > div {
+  flex: 1;
+  text-align: center;
+}
+.business-container .columns-wrapper .columns > div > div {
+  flex: 1;
+  text-align: center;
+}
+
+.business-container .columns-wrapper .columns img {
+  width: auto;
+  height: auto;
+}
+
+
+.business-container .default-content-wrapper {
+  display: block;
+  text-align: center;
+}
+.business-container .default-content-wrapper h2 {
+  width: 100%;
+  text-align: center;
+  float: initial;
+}
+.business-container .default-content-wrapper h2::after {
+  corder-bottom: 2px solid #17b677;
+}
+.business-container .default-content-wrapper p {
+  width: 100%;
+  font-size: 16px;
+  font-weight: 500;
+  color: #7e7e7e;
+  text-align: center;
+}
+.business-container .default-content-wrapper > p > a {
+  font-size: 16px;
+  font-weight: 400;
+  background: transparent;
+  border: 2px solid #1378be;
+  transition: easeall 0.5s;
+  color: #007bff;
+  padding: 10px;
+  text-decoration: none;
+  outline: none;
+  margin: 3% auto;
+  display: inline-block;
+}
+
