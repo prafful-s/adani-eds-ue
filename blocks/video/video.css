@@ -79,6 +79,10 @@
   gap: 25px;
   padding: 5% 10% !important;
   box-sizing: border-box;
+  background: url('/content/dam/adani/image/bg-business.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .video-container > div:nth-child(1) {
