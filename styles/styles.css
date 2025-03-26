@@ -703,3 +703,21 @@ main .section.section-title .default-content-wrapper:first-of-type p::after {
 .dropin-design .dropin-cart-item__sku {
   display: none;
 }
+
+.thirty-seventy-column {
+    display: flex; 
+    gap: 1rem;
+}
+
+/* First child: 30% width */
+.thirty-seventy-column > div:first-child {
+    flex: 0 0 30%;
+    flex: 1;
+}
+
+/* Second child: 70% width */
+.thirty-seventy-column > div:last-child {
+    flex: 0 0 70%;
+    flex: 2;
+}
+
