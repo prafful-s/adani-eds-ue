@@ -506,8 +506,12 @@ function decorateSections(main) {
           section.dataset[toCamelCase(key)] = meta[key];
         }
         if (key === 'sectionClass') {
-          const sectionClasssectionClass = meta.sectionClass;
-          section.classList.add(sectionClasssectionClass);
+          console.log('sectionClass', meta.sectionClass);
+          const sectionStyleClass = meta.sectionClass;
+          console.log('sectionStyleClass', sectionStyleClass);
+          console.log('before insertion section.classList', section.classList);
+          section.classList.add(sectionStyleClass);
+          console.log('post insertion section.classList', section.classList);
         }
       });
       sectionMeta.parentNode.remove();
