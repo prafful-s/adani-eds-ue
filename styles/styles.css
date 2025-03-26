@@ -731,3 +731,8 @@ main .section.section-title .default-content-wrapper:first-of-type p::after {
     padding-right: 15px;
     padding-left: 15px;
 }
+
+.seventy-thirty-column {
+    display: grid;
+    grid-template-columns: 70% 30%;
+}
