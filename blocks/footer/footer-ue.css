@@ -1,0 +1,165 @@
+.footer {
+      background-color: #252525;
+      color: #ffffff;
+      padding: 50px 0 30px;
+      font-family: 'Arial', sans-serif;
+    }
+    
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+    
+    /* Section Title Styling */
+    .footer-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    
+    .footer-title::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 40px;
+      height: 2px;
+      background-color: #f58220; /* Adani's orange accent color */
+    }
+    
+    /* Footer Columns */
+    .footer-column {
+      flex: 1;
+      min-width: 200px;
+      margin-bottom: 30px;
+      padding-right: 20px;
+    }
+    
+    /* Link Lists */
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+    
+    .footer-links a {
+      color: #a7a7a7;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s ease;
+      display: block;
+    }
+    
+    .footer-links a:hover {
+      color: #ffffff;
+      text-decoration: none;
+    }
+    
+    /* Logo Column Styling */
+    .logo-column {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .footer-logo {
+      margin-bottom: 20px;
+    }
+    
+    .footer-logo-img {
+      max-width: 140px;
+      height: auto;
+    }
+    
+    .footer-text-logo {
+      font-size: 28px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 5px;
+    }
+    
+    .footer-tagline {
+      font-size: 14px;
+      color: #f58220;
+      font-style: italic;
+    }
+    
+    .footer-about-text {
+      font-size: 13px;
+      line-height: 1.6;
+      color: #a7a7a7;
+      margin-top: 15px;
+    }
+    
+    
+    .copyright {
+      color: #777;
+      font-size: 12px;
+    }
+    
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 15px;
+    }
+    
+    .social-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: #333;
+      margin: 0 5px;
+      color: #fff;
+      transition: background-color 0.3s ease;
+    }
+    
+    .social-icons a:hover {
+      background-color: #f58220;
+    }
+    
+    /* Responsive adjustments */
+    @media screen and (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+      }
+      
+      .footer-column {
+        width: 100%;
+        min-width: 100%;
+        margin-bottom: 30px;
+      }
+      
+      .logo-column {
+        order: -1; /* Ensure logo appears at the top on mobile */
+        align-items: center;
+        text-align: center;
+      }
+      
+      .footer-about-text {
+        text-align: center;
+      }
+      
+      .footer-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      
+      .footer-title,
+      .footer-links {
+        text-align: center;
+      }
+    }
