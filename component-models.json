@@ -397,5 +397,22 @@
         "label": "Styles"
       }
     ]
+  },
+  {
+    "id": "videoSlide",
+    "fields": [
+      {
+        "component": "aem-content",
+        "name": "url",
+        "label": "Youtube URL"
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
   }
 ]

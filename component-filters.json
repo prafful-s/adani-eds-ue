@@ -20,7 +20,8 @@
       "carousel",
       "cta",
       "video",
-      "newslist"
+      "newslist",
+      "videocarousel"
     ]
   },
   {
@@ -48,6 +49,12 @@
     "id": "carousel",
     "components": [
       "slide"
+    ]
+  },
+  {
+    "id": "videocarousel",
+    "components": [
+      "videoSlide"
     ]
   }
 ]
