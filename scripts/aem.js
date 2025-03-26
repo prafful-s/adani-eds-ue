@@ -505,6 +505,10 @@ function decorateSections(main) {
         } else {
           section.dataset[toCamelCase(key)] = meta[key];
         }
+        if (key === 'sectionClass') {
+          const sectionClasssectionClass = meta.sectionClass;
+          section.classList.add(sectionClasssectionClass);
+        }
       });
       sectionMeta.parentNode.remove();
     }
