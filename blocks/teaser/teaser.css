@@ -55,6 +55,9 @@
 .teaser h2 a {
     color: #202020
 }
+.teaser.image-right > div:nth-child(1) {
+    grid-column: auto;
+}
 .teaser.image-right picture {
     float : right;
 }
