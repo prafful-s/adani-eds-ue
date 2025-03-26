@@ -95,7 +95,7 @@
     padding:48px 250px 48px 250px !important;
 }
 
-.button-container a.button {
+.button-container > a.button {
     cursor: pointer;
     text-decoration: none;
     padding: 10px;
@@ -111,7 +111,7 @@
 }
 
 
-.button-container a.button:hover, .button-container a.button:active, .button-container a.button:focus {
+.button-container > a.button:hover, .button-container > a.button:active, .button-container > a.button:focus {
     cursor: pointer;
     text-decoration: none;
     padding: 10px;
