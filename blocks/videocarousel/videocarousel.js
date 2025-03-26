@@ -142,6 +142,6 @@
   };
 
 
-export function decorate(block){
+export default function decorate(block){
    videoCarousel.init();
 }
