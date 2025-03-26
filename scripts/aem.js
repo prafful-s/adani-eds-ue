@@ -503,7 +503,11 @@ function decorateSections(main) {
             .map((style) => toClassName(style.trim()));
           styles.forEach((style) => section.classList.add(style));
         } else if (key === 'sectionclass') {
-          section.classList.add(meta.sectionclass);
+          const sectionClasses = meta.sectionclass
+            .split(',')
+            .filter(className => className)
+            .map(className => className.trim());
+          sectionClasses.forEach(className => section.classList.add(className));
         } else {
           section.dataset[toCamelCase(key)] = meta[key];
         }
