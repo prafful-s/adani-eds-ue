@@ -173,7 +173,7 @@
    box-sizing: border-box;
 }
 
-.news-updates .button-container > a.button {
+.news-updates .button-container a {
     cursor: pointer;
     text-decoration: none;
     padding: 10px;
@@ -187,9 +187,9 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1b9f94', endColorstr='#316db3', GradientType=1 );
     transition: ease all 0.3s;   
 }
-.news-updates .button-container > a.button:hover, 
-.news-updates .button-container > a.button:active, 
-.news-updates .button-container > a.button:focus {
+.news-updates .button-container a:hover, 
+.news-updates .button-container a:active, 
+.news-updates .button-container a:focus {
     cursor: pointer;
     text-decoration: none;
     padding: 10px;
