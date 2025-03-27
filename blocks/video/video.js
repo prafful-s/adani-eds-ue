@@ -49,9 +49,9 @@ function getVideoElement(source, autoplay, background) {
 }
 
 const loadVideoEmbed = (block, link, autoplay, background) => {
-  const url = new URL(link);
   const isYoutube = link.includes('youtube') || link.includes('youtu.be');
   if (isYoutube) {
+    const url = new URL(link);
     const embedWrapper = embedYoutube(url, autoplay, background);
     block.append(embedWrapper);
     embedWrapper.querySelector('iframe').addEventListener('load', () => {
