@@ -68,15 +68,10 @@ const loadVideoEmbed = (block, link, autoplay, background) => {
 
 export default function decorate(block) {
   console.log("video component called successfully");
-  const link = "https://www.youtube.com/embed/1hVlFYv-64E";
+  const link = block.querySelector('p[data-aue-prop="videoUrl"]').textContent;
   block.textContent = '';
   block.dataset.embedLoaded = false;
   const autoplay = block.classList ? block.classList.contains('autoplay') : false;
   const playOnLoad = block.classList ? block.classList.contains('playonload') : false;
   loadVideoEmbed(block, link, playOnLoad, autoplay);
-}
-
-export function decorateBlock(block){
-  console.log("video component called successfully");
-  decorate(block);
 }
