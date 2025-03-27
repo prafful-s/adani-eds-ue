@@ -247,3 +247,38 @@
 .image-top img {
     width: 100%;
 }
+
+
+
+.sustainability-container {
+    display: block;
+    width: 100%;
+}
+.sustainability-container .teaser-wrapper:nth-child(1) {
+    width: 67%;
+    display: inline-block;
+    float: left;
+}
+.sustainability-container .teaser-wrapper:nth-child(2) {
+    width: 33%;
+    display: inline-block;
+    float: right;
+}   
+.sustainability-container .teaser-wrapper:nth-child(3) {
+    width: 67%;
+    display: inline-block;
+    float: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
