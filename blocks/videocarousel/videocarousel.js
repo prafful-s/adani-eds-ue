@@ -1,16 +1,32 @@
-  const videoCarousel = {
+const videoCarousel = {
     // DOM Elements
-    container: document.querySelector('.videocarousel'),
+    container: null,
     slides: [],
     currentSlide: 0,
     totalSlides: 0,
     
     // Initialize the carousel
-    init: function() {
+    init: function(block) {
+      // Find the container - support both legacy and AEM structures
+      this.container = block || document.querySelector('.videocarousel') || document.querySelector('.video-carousel');
+      
       if (!this.container) return;
       
-      // Get all direct div children of the carousel as slides
-      const slideDivs = this.container.querySelectorAll(':scope > div');
+      // Reset state in case of re-initialization
+      this.slides = [];
+      this.currentSlide = 0;
+      
+      // Determine if we're using AEM structure (with data-aue attributes)
+      const isAemStructure = !!this.container.querySelector('[data-aue-model="videoSlide"]');
+      
+      // Get all slides based on structure
+      let slideDivs;
+      if (isAemStructure) {
+        slideDivs = this.container.querySelectorAll('[data-aue-model="videoSlide"]');
+      } else {
+        slideDivs = this.container.querySelectorAll(':scope > div');
+      }
+      
       this.totalSlides = slideDivs.length;
       
       if (this.totalSlides === 0) return;
@@ -28,8 +44,17 @@
           slideDiv.classList.add('active');
         }
         
-        // Find video link and inject iframe
-        const videoLinkElement = slideDiv.querySelector('div[data-valign="middle"] a');
+        // Find video link based on structure
+        let videoLinkElement;
+        
+        if (isAemStructure) {
+          videoLinkElement = slideDiv.querySelector('div > p > a');
+        } else {
+          videoLinkElement = slideDiv.querySelector('div[data-valign="middle"] a');
+        }
+        
+        if (!videoLinkElement) return; // Skip if no video link found
+        
         const videoLink = videoLinkElement.href;
         const videoId = this.getYouTubeId(videoLink);
         
@@ -48,16 +73,33 @@
           </iframe>
         `;
         
-        // Get the first div (video link container)
-        const videoLinkDiv = slideDiv.querySelector('div[data-valign="middle"]:first-child');
+        // Get the video link div based on structure
+        let videoLinkDiv;
+        
+        if (isAemStructure) {
+          videoLinkDiv = slideDiv.querySelector('div:first-child');
+        } else {
+          videoLinkDiv = slideDiv.querySelector('div[data-valign="middle"]:first-child');
+        }
         
         // Insert video container before the existing content
-        videoLinkDiv.innerHTML = '';
-        videoLinkDiv.appendChild(videoContainer);
+        if (videoLinkDiv) {
+          videoLinkDiv.innerHTML = '';
+          videoLinkDiv.appendChild(videoContainer);
+        }
         
-        // Add classes to content div
-        const contentDiv = slideDiv.querySelector('div[data-valign="middle"]:last-child');
-        contentDiv.classList.add('carousel-content');
+        // Add classes to content div based on structure
+        let contentDiv;
+        
+        if (isAemStructure) {
+          contentDiv = slideDiv.querySelector('div:nth-child(2)');
+        } else {
+          contentDiv = slideDiv.querySelector('div[data-valign="middle"]:last-child');
+        }
+        
+        if (contentDiv) {
+          contentDiv.classList.add('carousel-content');
+        }
       });
       
       // Add navigation
@@ -142,5 +184,17 @@
 
 export default function decorate(block){
   console.log("video carousel is called successfully");
-   videoCarousel.init();
+  videoCarousel.init(block);
+  /*
+  // For standalone usage (non-module)
+  if (typeof window !== 'undefined' && !window.videoCarouselInitialized) {
+    document.addEventListener('DOMContentLoaded', function() {
+      // Only initialize if not already initialized by module
+      if (videoCarousel.slides.length === 0) {
+        videoCarousel.init();
+      }
+    });
+    window.videoCarouselInitialized = true;
+  }
+  */
 }
