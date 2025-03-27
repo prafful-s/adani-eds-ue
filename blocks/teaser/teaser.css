@@ -205,10 +205,10 @@
     color: #fff;
 }
 
-.news-and-updates-wrapper ul li .button-container a.button,
-.news-and-updates-wrapper ul li .button-container a.button:hover,
-.news-and-updates-wrapper ul li .button-container a.button:active,
-.news-and-updates-wrapper ul li .button-container a.button:focus  {
+.news-and-updates-wrapper ul li a,
+.news-and-updates-wrapper ul li a:hover,
+.news-and-updates-wrapper ul li a:active,
+.news-and-updates-wrapper ul li a:focus  {
     background:transparent;
     background-origin: none;
     filter: none;
