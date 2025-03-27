@@ -209,12 +209,12 @@
 .news-updates ul li a:hover,
 .news-updates ul li a:active,
 .news-updates ul li a:focus  {
-    background:transparent;
-    background-origin: none;
-    filter: none;
-    color: #000;
-    transition: none;
-    padding: 0;
+    background:transparent !important;
+    background-origin: none !important;
+    filter: none !important;
+    color: #000 !important;
+    transition: none !important;
+    padding: 0 !important;
 }
 
 @media (width >= 1024px) {
