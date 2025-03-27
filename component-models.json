@@ -368,16 +368,9 @@
     "id": "video",
     "fields": [
       {
-        "component": "text",
+        "component": "aem-content",
         "name": "videoUrl",
         "label": "Video Url"
-      },
-      {
-        "component": "reference",
-        "valueType": "string",
-        "name": "referenceImage",
-        "label": "Reference Image",
-        "multi": false
       }
     ]
   },
