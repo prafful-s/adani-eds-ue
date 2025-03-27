@@ -1,6 +1,6 @@
 {
   "mappings": [
-    "/content/adani/:/content/adani/",
+    "/content/adani/:/",
     "/content/adani/configuration:/.helix/config.json",
     "/content/adani/metadata:/metadata.json"
   ],
