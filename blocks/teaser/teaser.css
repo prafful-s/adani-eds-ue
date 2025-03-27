@@ -205,10 +205,10 @@
     color: #fff;
 }
 
-ul li .button-container a.button,
-ul li .button-container a.button:hover,
-ul li .button-container a.button:active,
-ul li .button-container a.button:focus  {
+.news-and-updates-wrapper ul li .button-container a.button,
+.news-and-updates-wrapper ul li .button-container a.button:hover,
+.news-and-updates-wrapper ul li .button-container a.button:active,
+.news-and-updates-wrapper ul li .button-container a.button:focus  {
     background:transparent;
     background-origin: none;
     filter: none;
