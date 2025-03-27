@@ -68,7 +68,7 @@ const loadVideoEmbed = (block, link, autoplay, background) => {
 
 export default function decorate(block) {
   console.log("video component called successfully");
-  const link = block.querySelector('p[data-aue-prop="videoUrl"]').textContent;
+  const link = block.querySelector(':scope div:nth-child(1) > div a').innerHTML.trim();
   block.textContent = '';
   block.dataset.embedLoaded = false;
   const autoplay = block.classList ? block.classList.contains('autoplay') : false;
