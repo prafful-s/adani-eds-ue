@@ -251,29 +251,53 @@
 
 
 .sustainability-container {
-    display: block;
+    display: inline-block;
     width: 100%;
+    padding: 5% 10% !important;
+    box-sizing: border-box;
+    background: url(/content/dam/adani/image/bg-business.png);
+    background-color: #ebebeb;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .sustainability-container .teaser-wrapper:nth-child(1) {
     width: 67%;
     display: inline-block;
     float: left;
+    padding: 15px;
+    box-sizing: border-box;
 }
 .sustainability-container .teaser-wrapper:nth-child(2) {
     width: 33%;
     display: inline-block;
     float: right;
+    padding: 15px;
+    box-sizing: border-box;
 }   
 .sustainability-container .teaser-wrapper:nth-child(3) {
     width: 67%;
     display: inline-block;
     float: left;
+    padding: 15px;
+    box-sizing: border-box;
 }
 
 
+.sustainability-container .teaser-wrapper:nth-child(1) div[data-aue-label="Text"] {
+    border-left: 5px solid #18a790;
+    padding-left: 25px;
+}
 
+.sustainability-container .teaser-wrapper:nth-child(2) .teaser {
+    background-color: #ffffff;
+    margin: 0;
+}
 
-
+.sustainability-container .teaser-wrapper:nth-child(3) .teaser {
+    background-color: #ffffff;
+    margin: 0;
+}
 
 
 
