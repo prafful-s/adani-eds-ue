@@ -145,6 +145,12 @@ function setActiveTab() {
  * @param {Element} block The header block element
  */
 export default async function decorate(block) {
+
+  const navMeta = getMetadata('nav');
+  const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
+  const fragment = await loadFragment(navPath);
+
+  /*
   const locale = getMetadata('locale');
   const pathSegments = window.location.pathname.split('/').filter(Boolean);
   const parentPath = pathSegments.length > 1 ? `/${pathSegments.slice(0, -1).join('/')}/` : '/';console.log(parentPath);
@@ -162,6 +168,7 @@ export default async function decorate(block) {
   } catch (e) {
     // error handling
   }
+  */
 
   // decorate nav DOM
   const nav = document.createElement('nav');
@@ -200,6 +207,7 @@ export default async function decorate(block) {
     });
   }
   const navTools = nav.querySelector('.nav-tools');
+  /*
   if (languages?.data) {
     // Create the select element
     const languageSelector = document.createElement('select');
@@ -223,15 +231,8 @@ export default async function decorate(block) {
     languageSelector.addEventListener('change', () => {
       window.location.href = languageSelector.value;
     });
-
-//    const navTools = nav.querySelector('.nav-tools');
-    /*
-    const liElem = document.createElement('div');
-    liElem.append(languageSelector);
-    liElem.classList.add('lang-nav-selector');
-    navTools.append(liElem);
-    */
   }
+  */
 
 /*
   const search = document.createRange().createContextualFragment(`
