@@ -38,6 +38,7 @@ main .featureteaser-wrapper {
     flex-grow: 1;
     flex-basis: 0;
     min-width: 0;
+    text-align:center;
 }
 
 .featureteaser .featureteaser-body h3 {
@@ -46,6 +47,7 @@ main .featureteaser-wrapper {
     font-size: 26px;
     line-height: 30px;
     margin-bottom: 15px;
+    width: inherit;
 }
 
 .featureteaser .featureteaser-body h4 {
